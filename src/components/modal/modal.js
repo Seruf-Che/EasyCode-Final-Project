@@ -1,13 +1,13 @@
 import React from "react";
 import {connect} from "react-redux";
-import {setUserModal, closeModal} from "../../actions/";
+import {setUserModal, closeModal, setUser, signinUser} from "../../actions/";
 import ModalLogin from "./modal-login";
 import ModalSignin from "./modal-signin";
 
-const Modal = ({modal, close}) => {
-  
-  if (modal.isLoginModal) return <ModalLogin close={close}/>
-  if (modal.isSigninModal) return <ModalSignin close={close}/>
+const Modal = ({modal, close, setUser, signinUser}) => {
+
+  if (modal.isLoginModal) return <ModalLogin close={close} setUser={setUser}/>
+  if (modal.isSigninModal) return <ModalSignin close={close} signinUser={signinUser}/>
   return ""
 }
 
@@ -17,7 +17,9 @@ const mapStateToProps = ({modal}) => {
 
 const mapStateToDispatch = (dispatch) => {
   return {
-    close: () => dispatch(closeModal())
+    close: () => dispatch(closeModal()),
+    setUser: (user) => dispatch(setUser(user)),
+    signinUser: (user) => dispatch(signinUser(user))
   }
 }
 

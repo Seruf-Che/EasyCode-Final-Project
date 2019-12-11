@@ -1,9 +1,17 @@
-//export const loginUser = () => {
-//  return {
-//    type: "SUCCESS_LOGIN"
-//  }
-//}
-//
+export const setUser = (payload) => {
+  return {
+    type: "SUCCESS_LOGIN",
+    payload
+  }
+}
+
+export const signinUser = (payload) => {
+  return {
+    type: "SUCCESS_SIGNIN",
+    payload
+  }
+}
+
 export const logoutUser = () => {
   return {
     type: "SUCCESS_LOGOUT"
