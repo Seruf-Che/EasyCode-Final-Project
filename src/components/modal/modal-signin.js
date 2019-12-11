@@ -28,8 +28,6 @@ class ModalSignin extends React.Component {
     e.preventDefault();
     if(this.state.success) return;
 
-    this.setState({loading: true});
-
     const {email, password, last_name, first_name,
       phone, confirmPassword} = this.state;
     const {service, setUser, signinUser, close} = this.props;
@@ -40,6 +38,8 @@ class ModalSignin extends React.Component {
     if (!first_name || !last_name || !phone || !email || !password || !confirmPassword ) {
       return this.setState({error: "Please fill in all fields"});
     }
+
+    this.setState({loading: true});
 
     service.checkIn({first_name, last_name, phone, email, password, confirmPassword})
       .then(response => {
