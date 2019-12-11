@@ -7,10 +7,10 @@ input
   font-size: $font-size
   font-style: italic
   border: 2px solid $color-content
-  
+
   &:last-of-type
     margin-bottom: 0
-  
+
 .button
   display: flex
   justify-content: center
@@ -27,13 +27,17 @@ input
   border: 2px solid $color-content
   cursor: pointer
   transition: $transition
-  
+
   &:hover
     background-color: $color-bg
     color: $color-content
-  
+
   &:active
     opacity: 0.6
-  
+
   &:disabled
     opacity: 0.2
+    cursor: default
+    &:hover
+      color: $color-bg
+      background-color: $color-content

@@ -1,13 +1,13 @@
 import React from "react";
 import {connect} from "react-redux";
-import {setUserModal, closeModal, setUser, signinUser} from "../../actions/";
+import {closeModal, setUser, signinUser} from "../../actions/";
 import ModalLogin from "./modal-login";
 import ModalSignin from "./modal-signin";
 
 const Modal = ({modal, close, setUser, signinUser}) => {
 
   if (modal.isLoginModal) return <ModalLogin close={close} setUser={setUser}/>
-  if (modal.isSigninModal) return <ModalSignin close={close} signinUser={signinUser}/>
+  if (modal.isSigninModal) return <ModalSignin close={close} setUser={setUser} signinUser={signinUser}/>
   return ""
 }
 

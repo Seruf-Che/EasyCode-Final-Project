@@ -1,16 +1,14 @@
 import React from "react";
 import {connect} from "react-redux";
-import {loginUser, logoutUser, setUserModal} from "../../actions/";
-import withService from "../hoc/with-service";
+import {logoutUser, setUserModal} from "../../actions/";
 
-const UserMenu = ({user, setUserModal, logout}) => {
-
+const UserMenu = ({user, setUserModal, logout, isFooter}) => {
   return (
     <div className={"user-menu"}>
       {
         user.isLogin ?
           <>
-            <span>Hello {user.first_name}</span>
+            {isFooter ? "" : <span>Hello <span className={"user-menu__name"}>{user.first_name}</span></span>}
             <button onClick={logout} className={"user-menu__button"}>LogOut</button>
           </>
         :
@@ -40,4 +38,4 @@ const mapStateToDispatch = (dispatch) => {
   }
 }
 
-export default withService(connect(mapStateToProps, mapStateToDispatch)(UserMenu));
+export default connect(mapStateToProps, mapStateToDispatch)(UserMenu);

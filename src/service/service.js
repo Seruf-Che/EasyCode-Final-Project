@@ -1,3 +1,5 @@
+const delay = 1000
+
 export default class AppleService{
 
     getDevices = (id) => {
@@ -7,22 +9,27 @@ export default class AppleService{
                     reject(new Error("Something went wrong"))
                 }
                 resolve(storage[id])
-            }, 0)
+            }, delay)
         })
     };
 
     getCurrentDevice = (id) => {
         return new Promise((resolve) => {
-            let currentDevice = {};
-            Object.keys(storage).map((el) => {
-                const res = storage[el].find((el) => el.id === id);
-                if(res) currentDevice = res;
-            });
             setTimeout(() => {
-                resolve(iphones[0])
-            }, 0)
+                resolve(
+                  devices.find(e => e.id === id)
+                )
+            }, delay)
         })
     };
+
+    getBestSales = () => {
+      return new Promise((resolve, reject) => {
+          setTimeout(() => {
+              resolve(best_sales)
+          }, delay)
+      })
+    }
 
     logIn = (email, password) => {
         return new Promise((resolve) => {
@@ -37,12 +44,13 @@ export default class AppleService{
                     const { password, ...newUser } = user;
                     resolve ({status: 0, user: newUser})
                 }
-            }, 0)
+            }, delay)
         })
     };
 
     checkIn = (user={}) => {
         const {first_name, last_name, phone, email, password, confirmPassword} = user;
+        console.log(user);
         return new Promise((resolve) => {
             setTimeout(() => {
                 if(!first_name || !last_name || !phone || !email || !password || !confirmPassword ){
@@ -58,7 +66,7 @@ export default class AppleService{
                     users.push({first_name, last_name, phone, email, password});
                     resolve({status: 0, user: {first_name, last_name, phone, email}})
                 }
-            }, 0)
+            }, delay)
         })
     }
 
@@ -189,3 +197,8 @@ const storage = {
     837382: [...iphones],
     736726: [...ipads]
 };
+
+const devices = [
+  ...iphones,
+  ...ipads
+]

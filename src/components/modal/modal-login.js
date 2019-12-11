@@ -1,5 +1,6 @@
 import React from "react";
 import withService from "../hoc/with-service";
+import Spinner from "../spinner/spinner";
 
 class ModalLogin extends React.Component {
 
@@ -7,40 +8,43 @@ class ModalLogin extends React.Component {
     email: "",
     password: "",
     success: false,
-    error: ""
+    error: "",
+    loading: false
   }
 
   onChangeHandler = (e) => {
     const {name, value} = e.currentTarget;
     this.setState({
-      [name]: value
+      [name]: value,
+      error: ""
     })
   }
 
   onSubmitHandler = (e) => {
     e.preventDefault();
-    const {email, password, success} = this.state;
-    if(success) return;
+    if(this.state.success) return;
+    this.setState({loading: true});
+    const {email, password} = this.state;
+    const {service, setUser, close} = this.props;
 
-    const {service, setUser} = this.props;
-
-   service.logIn(email, password)
-    .then(response => {
-      if (response.status === -1) {
-        this.setState({error: response.error})
+    service.logIn(email, password)
+      .then(response => {
+        if (response.status === -1) {
+          this.setState({error: response.error});
+        }
+        else {
+          setUser(response.user);
+          this.setState({success: true});
+          setTimeout(()=>close(), 1500);
+        }
+        this.setState({loading: false});
       }
-      else {
-        setUser(response.user)
-      }
-    })
-
-    console.log("Submited")
-
+    );
   }
 
   render() {
     const {close} = this.props;
-    const {email, password, error, success} = this.state;
+    const {email, password, error, success, loading} = this.state;
 
     return(
       <div className={"modal"} onClick={close}>
@@ -49,6 +53,7 @@ class ModalLogin extends React.Component {
           onClick={e => e.stopPropagation()}
           onSubmit={this.onSubmitHandler}
           action="post">
+          {loading ? <Spinner />: ""}
           <div className="modal__header">
             <h2 className="modal__heading">Login</h2>
             <span
@@ -57,7 +62,7 @@ class ModalLogin extends React.Component {
           </div>
           <div className="modal__body">
             <input
-              type="text"
+              type="email"
               placeholder="Your email..."
               name="email"
               value={email}
@@ -74,7 +79,10 @@ class ModalLogin extends React.Component {
               required/>
           </div>
           <div className="modal__footer">
-            <div className="modal__error">{error ? error : ""}</div>
+            <div
+              className={`modal__submit-response ${ error ? "modal__submit-response--error" : ""}`}>
+              {error ? error : success ? "You have been succefully logged in" : ""}
+            </div>
             <button
               type="submit"
               className="button"
