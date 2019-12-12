@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const CategoriesItem = ({item}) => {
   return (
-    <Link to={`/catalog/${item.id}`} className="categories__item">
+    <Link to={`/category/${item.id}`} className="categories__item">
       <div className="categories__img">
         <img src={item.img} alt={item.name}/>
       </div>

@@ -9,13 +9,19 @@ const Navigation = () => {
           <NavLink 
             className="navigation__link"
             activeClassName="navigation__link--current" 
-            to="/">Iphone</NavLink>
+            to="/">Home</NavLink>
         </li>
         <li className="navigation__item">
           <NavLink 
             className="navigation__link"
             activeClassName="navigation__link--current" 
-            to="/">Ipad</NavLink>
+            to="/category/837382">Iphone</NavLink>
+        </li>
+        <li className="navigation__item">
+          <NavLink 
+            className="navigation__link"
+            activeClassName="navigation__link--current" 
+            to="/category/736726">Ipad</NavLink>
         </li>
         <li className="navigation__item">
           <NavLink 

@@ -43,7 +43,7 @@ export const setLogoutModal = () => {
   }
 }
 
-export const createBestSalesList = (payload) => {
+const createBestSalesList = (payload) => {
     return {
         type: "CREATE_BEST_SALES_LIST",
         payload
@@ -54,5 +54,28 @@ export const fetchBestSalesList = (getBestSales, dispatch) => {
     getBestSales()
         .then((list) => {
             dispatch(createBestSalesList(list));
+        })
+};
+
+const createCategoryList = (payload) => {
+  return {
+    type: "CREATE_CATEGORY_LIST",
+    payload
+  }
+}
+
+export const setCategoryLoading = (payload) => {
+  return {
+    type: "SET_CATEGORY_LOADING",
+    payload
+  }
+}
+
+export const fetchCategoryList = (getCategoryList, id, dispatch) => {
+    dispatch(setCategoryLoading(true));
+    getCategoryList(id)
+        .then((list) => {
+            dispatch(createCategoryList({list,id}));
+            dispatch(setCategoryLoading(false));
         })
 };
