@@ -26,7 +26,6 @@ class CategoryPage extends React.Component {
   
   render() {
     const { categoriesLists, id } = this.props;
-    console.log(this.props);
     
     return(
       <main>
