@@ -62,9 +62,10 @@ class ModalLogin extends React.Component {
           </div>
           <div className="modal__body">
             <input
-              type="email"
+              type="text"
               placeholder="Your email..."
               name="email"
+              autoComplete="email"
               value={email}
               onChange={this.onChangeHandler}
               className="input"
@@ -73,6 +74,7 @@ class ModalLogin extends React.Component {
               type="password"
               placeholder="Your password..."
               name="password"
+              autoComplete="current-password"
               value={password}
               onChange={this.onChangeHandler}
               className="input"

@@ -50,7 +50,7 @@ export default class AppleService{
 
     checkIn = (user={}) => {
         const {first_name, last_name, phone, email, password, confirmPassword} = user;
-        console.log(user);
+
         return new Promise((resolve) => {
             setTimeout(() => {
                 if(!first_name || !last_name || !phone || !email || !password || !confirmPassword ){

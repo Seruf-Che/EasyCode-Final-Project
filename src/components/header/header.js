@@ -6,13 +6,13 @@ import UserMenu from "../user-menu/user-menu";
 
 const Header = () => {
   return(
-    <div className={"header"}>
+    <header className={"header"}>
       <div className={"header__inner"}>
         <Logo />
         <Navigation />
         <UserMenu />
       </div>
-    </div>
+    </header>
   )
 };
 

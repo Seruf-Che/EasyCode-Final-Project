@@ -98,6 +98,7 @@ class ModalSignin extends React.Component {
               type="email"
               placeholder="Email"
               name="email"
+              autoComplete="email"
               value={email}
               onChange={this.onChangeHandler}
               className="input"
@@ -106,6 +107,7 @@ class ModalSignin extends React.Component {
               type="text"
               placeholder="Phone Number"
               name="phone"
+              autoComplete="phone"
               value={phone}
               onChange={this.onChangeHandler}
               className="input"
@@ -114,6 +116,7 @@ class ModalSignin extends React.Component {
               type="password"
               placeholder="Password"
               name="password"
+              autoComplete="current-password"
               value={password}
               onChange={this.onChangeHandler}
               className="input"
@@ -122,6 +125,7 @@ class ModalSignin extends React.Component {
               type="password"
               placeholder="Confirm Password"
               name="confirmPassword"
+              autoComplete="current-password"
               value={confirmPassword}
               onChange={this.onChangeHandler}
               className="input"

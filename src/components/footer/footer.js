@@ -5,12 +5,12 @@ import Copyright from "../copyright/copyright";
 
 const Footer = () => {
   return(
-    <div className={"footer"}>
+    <footer className={"footer"}>
       <div className={"footer__inner"}>
         <UserMenu isFooter={true}/>
         <Copyright />
       </div>
-    </div>
+    </footer>
   )
 };
 

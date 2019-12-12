@@ -1,10 +1,10 @@
-const defaultUser = {
+const defaultState = {
   isLogin: false
 }
 
 const setUser = (state, action) => {
   if (state === undefined) {
-    return defaultUser
+    return defaultState
   }
 
   switch (action.type){
@@ -17,7 +17,7 @@ const setUser = (state, action) => {
         email: action.payload.email
       };
     case "SUCCESS_LOGOUT":
-      return defaultUser;
+      return defaultState;
     default:
       return state.user
   }

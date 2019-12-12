@@ -1,0 +1,38 @@
+.categories
+  display: flex
+  justify-content: space-between
+  flex-direction: row
+  flex-wrap: wrap
+  
+  &__item   
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 30px
+    padding: 20px
+    width: 410px
+    text-decoration: none
+    background-color: $color-bg-alt
+    box-shadow: 0 5px 15px $color-bg-shadow
+    transition: $transition
+    cursor: pointer
+    
+    &:hover
+      box-shadow: 0 5px 30px $color-bg-shadow
+    
+      img
+        transform: scale(1.02)
+      
+      .categories__title
+        opacity: 1
+  img
+    transition: $transition
+    
+  &__title
+    margin-top: 10px
+    color: $color-content
+    font-size: 24px
+    opacity: 0.5
+    transition: $transition
+    

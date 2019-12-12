@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {logoutUser, setUserModal} from "../../actions/";
+import {setUserModal} from "../../actions/";
 
 const UserMenu = ({user, setUserModal, logout, isFooter}) => {
   return (
@@ -9,7 +9,7 @@ const UserMenu = ({user, setUserModal, logout, isFooter}) => {
         user.isLogin ?
           <>
             {isFooter ? "" : <span>Hello <span className={"user-menu__name"}>{user.first_name}</span></span>}
-            <button onClick={logout} className={"user-menu__button"}>LogOut</button>
+            <button onClick={() => setUserModal("OPEN_LOGOUT_CONFIRM_MODAL")} className={"user-menu__button"}>LogOut</button>
           </>
         :
           <>
@@ -33,7 +33,6 @@ const mapStateToProps = ({user}) => {
 
 const mapStateToDispatch = (dispatch) => {
   return {
-    logout: () => dispatch(logoutUser()),
     setUserModal: (type) => dispatch(setUserModal(type))
   }
 }

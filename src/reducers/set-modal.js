@@ -1,19 +1,21 @@
 const setModal = (state, action) => {
   if (state === undefined) {
-    return {}
+    return false
   }
   
   switch (action.type) {
     case "OPEN_LOGIN_MODAL":
-      return {
-        isLoginModal: true
-      };
+      return "login";
+      
     case "OPEN_SIGNIN_MODAL":
-      return {
-        isSigninModal: true
-      };
+      return "signin";
+      
+    case "OPEN_LOGOUT_CONFIRM_MODAL":
+      return "logoutConfirm";
+      
     case "CLOSE_MODAL":
       return {};
+      
     default:
       return state.modal;
   }
