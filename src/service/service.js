@@ -1,4 +1,4 @@
-const delay = 1000
+const delay = 1000;
 
 export default class AppleService{
 
@@ -14,9 +14,9 @@ export default class AppleService{
     getCurrentDevice = (id) => {
         return new Promise((resolve) => {
             setTimeout(() => {
-                resolve(
-                  devices.find(e => e.id === id)
-                )
+                const response = devices.find(e => e.id === id);
+              
+                resolve(response ? response : {status: "Sorry, nothing found..."})
             }, delay)
         })
     };

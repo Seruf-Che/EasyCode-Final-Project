@@ -73,3 +73,26 @@ export const fetchCategoryList = (getCategoryList, id, dispatch) => {
       dispatch(setCategoryLoading(false));
     })
 };
+
+export const setProduct = (payload) => {
+  return {
+    type: "SET_PRODUCT",
+    payload
+  }
+}
+
+export const setProductLoading = (payload) => {
+  return {
+    type: "SET_PRODUCT_LOADING",
+    payload
+  }  
+}
+
+export const fetchProduct = (getProduct, id, dispatch) => {
+  dispatch(setProductLoading(true));
+  getProduct(+id)
+    .then(item => {
+      dispatch(setProduct({item, id}));
+      dispatch(setProductLoading(false));
+    });
+}

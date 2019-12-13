@@ -2,6 +2,7 @@ import setUser from "./set-user";
 import setModal from "./set-modal";
 import setBestSalesList from "./set-best-sales-list";
 import setCategoriesLists from "./set-categories-lists";
+import setProduct from "./set-product";
 
 const reducer = (state, action) => {
 //  console.log("STORE:", state);
@@ -9,7 +10,8 @@ const reducer = (state, action) => {
     user: setUser(state, action),
     modal: setModal(state, action),
     bestSales: setBestSalesList(state, action),
-    categoriesLists: setCategoriesLists(state, action)
+    categoriesLists: setCategoriesLists(state, action),
+    products: setProduct(state, action)
   }
 }
 
