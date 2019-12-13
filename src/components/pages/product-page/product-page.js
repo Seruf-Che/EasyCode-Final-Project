@@ -14,14 +14,14 @@ class ProductPage extends React.Component {
   }
   
   componentDidUpdate(prevProps) {
-    const {id, products} = this.props
-    if (prevProps.id !== id) {
-      if (!products.list[id]) this.getProduct();
+    if (prevProps.id !== this.props.id) {
+      this.getProduct();
     }
   }
   
   getProduct = () => {
-    const {id, service, setProduct} = this.props; 
+    const {id, service, setProduct, products} = this.props;
+    if (products.list[id]) return;
     setProduct(service.getCurrentDevice, id);
   }
 
@@ -29,11 +29,13 @@ class ProductPage extends React.Component {
     const {id, products} = this.props;
     const {isLoading, list = {}} = products;
     
-    if (isLoading) return <Spinner />
+    
     
     return(
         <main className={"product-page"}>
+        
         <Section>
+          {isLoading ? <Spinner small={true}/> : ""}
           {
             list[id] ? 
               list[id].status ? 
