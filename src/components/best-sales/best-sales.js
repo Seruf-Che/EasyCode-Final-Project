@@ -2,7 +2,7 @@ import React from "react";
 import withService from "../hoc/with-service";
 import {connect} from "react-redux";
 import {fetchBestSalesList} from "../../actions";
-import BestSalesItem from "./best-sales-item";
+import ProductCard from "../cards/product-card/product-card";
 
 class BestSales extends React.Component {
 
@@ -15,7 +15,7 @@ class BestSales extends React.Component {
     return (
       <div className={"best-sales"}>
         {bestSales.length > 0 ?
-          bestSales.map(e => <BestSalesItem key={e.id} item={e}/>)
+          bestSales.map(e => <ProductCard key={e.id} item={e}/>)
           : ""}
       </div>
     )

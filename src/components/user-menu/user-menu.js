@@ -26,9 +26,7 @@ const UserMenu = ({user, setUserModal, logout, isFooter}) => {
 }
 
 const mapStateToProps = ({user}) => {
-  return {
-    user
-  }
+  return {user}
 }
 
 const mapStateToDispatch = (dispatch) => {

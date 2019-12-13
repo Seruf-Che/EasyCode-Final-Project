@@ -37,12 +37,6 @@ export const setUserModal = (type) => {
   }
 }
 
-export const setLogoutModal = () => {
-  return {
-    type: "CLOSE_MODAL"
-  }
-}
-
 const createBestSalesList = (payload) => {
     return {
         type: "CREATE_BEST_SALES_LIST",
@@ -72,10 +66,10 @@ export const setCategoryLoading = (payload) => {
 }
 
 export const fetchCategoryList = (getCategoryList, id, dispatch) => {
-    dispatch(setCategoryLoading(true));
-    getCategoryList(id)
-        .then((list) => {
-            dispatch(createCategoryList({list,id}));
-            dispatch(setCategoryLoading(false));
-        })
+  dispatch(setCategoryLoading(true));
+  getCategoryList(id)
+    .then((list) => {
+      dispatch(createCategoryList({list,id}));
+      dispatch(setCategoryLoading(false));
+    })
 };

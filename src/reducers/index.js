@@ -4,7 +4,7 @@ import setBestSalesList from "./set-best-sales-list";
 import setCategoriesLists from "./set-categories-lists";
 
 const reducer = (state, action) => {
-  // console.log("STORE:", state);
+//  console.log("STORE:", state);
   return {
     user: setUser(state, action),
     modal: setModal(state, action),

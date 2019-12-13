@@ -5,10 +5,8 @@ export default class AppleService{
     getDevices = (id) => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                if (Math.random() > 1) {
-                    reject(new Error("Something went wrong"))
-                }
-                resolve(storage[id])
+                const response = storage[id];
+                resolve(response ? response : {status: "Sorry, nothing found..."})
             }, delay)
         })
     };
