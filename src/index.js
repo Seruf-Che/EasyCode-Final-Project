@@ -10,10 +10,10 @@ import "./index.sass";
 
 ReactDOM.render(
   <Provider store = {store}>
-    <Router>
-      <ErrorIndicator>
+    <ErrorIndicator>
+      <Router>
         <App/>
-      </ErrorIndicator>
-    </Router>
+      </Router>
+    </ErrorIndicator>
   </Provider>,
 document.getElementById('root'));

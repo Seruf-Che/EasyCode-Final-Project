@@ -1,5 +1,4 @@
 import React from "react";
-import {withRouter} from "react-router-dom"
 
 class ErrorIndicator extends React.Component{
   
@@ -13,12 +12,8 @@ class ErrorIndicator extends React.Component{
     })
   }
 
-  onGoBackHandler = () => {
-    this.props.history.goBack();
-  }
-
-  onGoHomeHandler = () => {
-    this.props.history.push("/");
+  onReloadHandler = () => {
+    window.location.reload(true);
   }
   
   render(){
@@ -26,8 +21,7 @@ class ErrorIndicator extends React.Component{
       <div className="error-indicator">
         <p>Sorry, something went wrong... :(</p>
         <div className="error-indicator__navigation">
-          <button onClick={this.onGoBackHandler}>Go Back</button>
-          <button onClick={this.onGoHomeHandler}>Go Home</button>
+          <button onClick={this.onReloadHandler} className={"button"}>Reload Page</button>
         </div>
       </div>
     )
@@ -36,4 +30,4 @@ class ErrorIndicator extends React.Component{
   }
 }
 
-export default withRouter(ErrorIndicator);
+export default ErrorIndicator;
