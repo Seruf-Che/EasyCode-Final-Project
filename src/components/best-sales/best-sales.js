@@ -23,9 +23,7 @@ class BestSales extends React.Component {
 };
 
 const mapStateToProps = ({bestSales}) => {
-  return {
-    bestSales
-  }
+  return {bestSales}
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

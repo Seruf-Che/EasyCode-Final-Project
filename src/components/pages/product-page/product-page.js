@@ -20,17 +20,15 @@ class ProductPage extends React.Component {
   }
   
   getProduct = () => {
-    const {id, service, setProduct, products} = this.props;
+    const {id, setProduct, products} = this.props;
     if (products.list[id]) return;
-    setProduct(service.getCurrentDevice, id);
+    setProduct(id);
   }
 
   render() {
     const {id, products} = this.props;
     const {isLoading, list = {}} = products;
-    
-    
-    
+
     return(
         <main className={"product-page"}>
         
@@ -56,13 +54,14 @@ const mapStateToProps = ({products}) => {
   return {products}
 }
 
-const mapStateToDispatch = (dispatch) => {
+const mapStateToDispatch = (dispatch, ownProps) => {
+  const {service: {getCurrentDevice}} = ownProps;
   return {
-    setProduct: (getProduct, id) => fetchProduct(getProduct, id, dispatch)
+    setProduct: (id) => fetchProduct(getCurrentDevice, id, dispatch)
   }
 }
 
 export default 
   withService(
-  connect(mapStateToProps, mapStateToDispatch)(ProductPage)
-);
+    connect(mapStateToProps, mapStateToDispatch)(ProductPage)
+  );
