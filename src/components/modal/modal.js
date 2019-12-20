@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {closeModal, setUser, signinUser, logoutUser} from "../../actions/";
+import {closeModal, setUser, logoutUser} from "../../actions/";
 import ModalLogin from "./modal-login";
 import ModalSignin from "./modal-signin";
 import ModalLogoutCofirm from "./modal-logout-confirm";
@@ -33,7 +33,6 @@ const mapStateToDispatch = (dispatch) => {
   return {
     close: () => dispatch(closeModal()),
     setUser: (user) => dispatch(setUser(user)),
-    signinUser: (user) => dispatch(signinUser(user)),
     logoutUser: () => dispatch(logoutUser())
   }
 }

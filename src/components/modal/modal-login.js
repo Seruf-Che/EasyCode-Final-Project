@@ -8,7 +8,7 @@ class ModalLogin extends React.Component {
     email: "",
     password: "",
     success: false,
-    error: "",
+    reason: "",
     loading: false
   }
 
@@ -16,7 +16,7 @@ class ModalLogin extends React.Component {
     const {name, value} = e.currentTarget;
     this.setState({
       [name]: value,
-      error: ""
+      reason: ""
     })
   }
 
@@ -29,8 +29,9 @@ class ModalLogin extends React.Component {
 
     service.logIn(email, password)
       .then(response => {
-        if (response.status === -1) {
-          this.setState({error: response.error});
+        console.log(response)
+        if (response.status === "-1") {
+          this.setState({reason: response.reason});
         }
         else {
           setUser(response.user);
@@ -44,7 +45,7 @@ class ModalLogin extends React.Component {
 
   render() {
     const {close} = this.props;
-    const {email, password, error, success, loading} = this.state;
+    const {email, password, reason, success, loading} = this.state;
 
     return(
       <div className={"modal"} onClick={close}>
@@ -82,8 +83,8 @@ class ModalLogin extends React.Component {
           </div>
           <div className="modal__footer">
             <div
-              className={`modal__submit-response ${ error ? "modal__submit-response--error" : ""}`}>
-              {error ? error : success ? "You have been succefully logged in" : ""}
+              className={`modal__submit-response ${ reason ? "modal__submit-response--error" : ""}`}>
+              {reason ? reason : success ? "You have been succefully logged in" : ""}
             </div>
             <button
               type="submit"

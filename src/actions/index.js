@@ -5,13 +5,6 @@ export const setUser = (payload) => {
   }
 }
 
-export const signinUser = (payload) => {
-  return {
-    type: "SUCCESS_SIGNIN",
-    payload
-  }
-}
-
 export const logoutUser = () => {
   return {
     type: "SUCCESS_LOGOUT"

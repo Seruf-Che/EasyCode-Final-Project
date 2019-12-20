@@ -11,7 +11,7 @@ class ModalSignin extends React.Component {
     last_name: "",
     first_name: "",
     phone: "",
-    error: "",
+    reason: "",
     confirmPassword: "",
     loading: false
   }
@@ -20,7 +20,7 @@ class ModalSignin extends React.Component {
     const {name, value} = e.currentTarget;
     this.setState({
       [name]: value,
-      error: ""
+      reason: ""
     })
   }
 
@@ -30,27 +30,26 @@ class ModalSignin extends React.Component {
 
     const {email, password, last_name, first_name,
       phone, confirmPassword} = this.state;
-    const {service, setUser, signinUser, close} = this.props;
+    const {service, setUser, close} = this.props;
 
     if (password !== confirmPassword) {
-      return this.setState({error: "Password and confirm password do not match"});
+      return this.setState({reason: "Password and confirm password do not match"});
     }
     if (!first_name || !last_name || !phone || !email || !password || !confirmPassword ) {
-      return this.setState({error: "Please fill in all fields"});
+      return this.setState({reason: "Please fill in all fields"});
     }
 
     this.setState({loading: true});
 
-    service.checkIn({first_name, last_name, phone, email, password, confirmPassword})
+    service.signIn({first_name, last_name, phone, email, password, confirmPassword})
       .then(response => {
-         if (response.status === -1) {
-           this.setState({error: response.error})
+         if (response.status === "-1") {
+           this.setState({reason: response.reason})
          }
          else {
-           signinUser(response.user);
            this.setState({success: true});
            service.logIn(email, password)
-            .then(response => setUser(response.user));
+            .then(response => setUser({...response}));
             setTimeout(()=>close(), 1500);
          }
          this.setState({loading: false});
@@ -60,7 +59,7 @@ class ModalSignin extends React.Component {
 
   render() {
     const {close} = this.props;
-    const {email, password, error, success, last_name, first_name,
+    const {email, password, reason, success, last_name, first_name,
       phone, confirmPassword, loading} = this.state;
 
     return(
@@ -133,8 +132,8 @@ class ModalSignin extends React.Component {
           </div>
           <div className="modal__footer">
             <div
-              className={`modal__submit-response ${ error ? "modal__submit-response--error" : ""}`}>
-              {error ? error : success ? "You have been succefully signed in" : ""}
+              className={`modal__submit-response ${ reason ? "modal__submit-response--error" : ""}`}>
+              {reason ? reason : success ? "You have been succefully signed in" : ""}
             </div>
             <button
               type="submit"
