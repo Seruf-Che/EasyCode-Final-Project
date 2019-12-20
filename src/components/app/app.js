@@ -10,7 +10,6 @@ import ProductPage from "../pages/product-page/product-page";
 import Footer from "../footer/footer";
 
 const App = () => {
-
   return(
     <>
       <Modal />

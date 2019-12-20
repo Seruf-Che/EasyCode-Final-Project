@@ -11,10 +11,15 @@ const ProductCard = (props) => {
         </div>
         <div className="product-card__model">{model}</div>
         <div className="product-card__price">
-          Price: { stoсkPrice ?
-            <><span className="product-card__old-price">{price}$</span> {stoсkPrice}$</>
+          Price: 
+          {stoсkPrice ?
+              <>
+                <span className="product-card__old-price">
+                  {price}$
+                </span> {stoсkPrice}$
+              </>
             :
-            `${price}$`
+              `${price}$`
           }
         </div>
     </Link>
