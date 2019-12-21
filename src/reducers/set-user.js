@@ -6,7 +6,6 @@ const setUser = (state, action) => {
   if (state === undefined) {
     return defaultState
   }
-  console.log(action);
 
   switch (action.type){
     case "SUCCESS_LOGIN":
