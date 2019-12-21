@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {setUserModal} from "../../actions/";
+import {Link} from "react-router-dom";
 
 const UserMenu = ({user, setUserModal, logout, isFooter}) => {
   return (
@@ -8,7 +9,7 @@ const UserMenu = ({user, setUserModal, logout, isFooter}) => {
       {
         user.isLogin ?
           <>
-            {isFooter ? "" : <span>Hello <span className={"user-menu__name"}>{user.first_name}</span></span>}
+            {isFooter ? "" : <span>Hello <Link to="/account" className={"user-menu__name"}>{user.first_name}</Link></span>}
             <button onClick={() => setUserModal("OPEN_LOGOUT_CONFIRM_MODAL")} className={"user-menu__button"}>LogOut</button>
           </>
         :

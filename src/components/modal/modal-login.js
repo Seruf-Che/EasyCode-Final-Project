@@ -29,12 +29,12 @@ class ModalLogin extends React.Component {
 
     service.logIn(email, password)
       .then(response => {
-        console.log(response)
         if (response.status === "-1") {
           this.setState({reason: response.reason});
         }
         else {
-          setUser(response.user);
+          console.log("service.logIn", response);
+          setUser(response);
           this.setState({success: true});
           setTimeout(()=>close(), 1500);
         }

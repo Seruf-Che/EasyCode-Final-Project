@@ -6,6 +6,7 @@ const setUser = (state, action) => {
   if (state === undefined) {
     return defaultState
   }
+  console.log(action);
 
   switch (action.type){
     case "SUCCESS_LOGIN":
@@ -14,7 +15,8 @@ const setUser = (state, action) => {
         first_name: action.payload.first_name,
         last_name: action.payload.last_name,
         phone: action.payload.phone,
-        email: action.payload.email
+        email: action.payload.email,
+        address: action.payload.address
       };
     case "SUCCESS_LOGOUT":
       return defaultState;
