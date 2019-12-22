@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "../../wrappers-components/section/section";
 import {connect} from "react-redux";
+import withService from "../../hoc/with-service";
 
 class AccountPage extends React.Component {
 
@@ -132,4 +133,7 @@ const mapStateToProsp = ({user}) => {
   return {first_name, last_name, phone, email, address}
 }
 
-export default connect(mapStateToProsp)(AccountPage);
+export default
+  withService(
+    connect(mapStateToProsp)(AccountPage)
+  );
