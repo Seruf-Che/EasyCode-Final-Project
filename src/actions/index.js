@@ -25,8 +25,10 @@ export const setUserModal = (type) => {
       return {type};
     case ("OPEN_LOGOUT_CONFIRM_MODAL"):
       return {type};
+    case ("OPEN_DELETE_CONFIRM_MODAL"):
+      return {type};
     default:
-      throw Error(`There is no such type like ${type}`);    
+      throw Error(`There is no such type like ${type}`);
   }
 }
 
@@ -78,7 +80,7 @@ export const setProductLoading = (payload) => {
   return {
     type: "SET_PRODUCT_LOADING",
     payload
-  }  
+  }
 }
 
 export const fetchProduct = (getProduct, id, dispatch) => {

@@ -2,6 +2,7 @@ import React from "react";
 import Section from "../../wrappers-components/section/section";
 import {connect} from "react-redux";
 import withService from "../../hoc/with-service";
+import {setUser, setUserModal} from "../../../actions/";
 
 class AccountPage extends React.Component {
 
@@ -15,7 +16,7 @@ class AccountPage extends React.Component {
     newPassword: "",
     newConfirmPassword: "",
     reason: "",
-    success: "",
+    success: false,
     isChanged: false
   }
 
@@ -24,6 +25,7 @@ class AccountPage extends React.Component {
     this.setState({
       [name]: value,
       reason: "",
+      success: false,
       isChanged: true
     })
   }
@@ -38,17 +40,21 @@ class AccountPage extends React.Component {
       if (newPassword !== newConfirmPassword) return this.setState({reason: "Confirm password doesn't match"});
     }
 
-    this.setState({success: true})
+    this.setState({success: true, isChanged: false});
+    this.props.updateUser({first_name, last_name, phone, email, address, password,
+      newPassword, newConfirmPassword});
+    this.props.setUser({first_name, last_name, phone, email, address})
   }
-
 
   render() {
     const {first_name, last_name, phone, email, address, password,
       newPassword, newConfirmPassword, reason, success, isChanged} = this.state;
+
     return (
       <main>
-        <Section heading={`Hello ${"name"}`}>
+        <Section heading={`Hello ${this.props.first_name}`}>
           <form onSubmit={this.onSubmitHandler}>
+            <label className={"form__label"}>Your First Name</label>
             <input
               type="text"
               placeholder={"First Name"}
@@ -56,6 +62,7 @@ class AccountPage extends React.Component {
               value={first_name}
               onChange={this.onChangeHandler}
               className="input"/>
+            <label className={"form__label"}>Your Last Name</label>
             <input
               type="text"
               placeholder={"Last Name"}
@@ -63,6 +70,7 @@ class AccountPage extends React.Component {
               value={last_name}
               onChange={this.onChangeHandler}
               className="input"/>
+            <label className={"form__label"}>Your Email</label>
             <input
               type="email"
               placeholder={"Email"}
@@ -71,6 +79,7 @@ class AccountPage extends React.Component {
               value={email}
               onChange={this.onChangeHandler}
               className="input"/>
+            <label className={"form__label"}>Your Phone Number</label>
             <input
               type="text"
               placeholder={"Phone number"}
@@ -79,6 +88,7 @@ class AccountPage extends React.Component {
               value={phone}
               onChange={this.onChangeHandler}
               className="input"/>
+            <label className={"form__label"}>Your Address</label>
             <input
               type="text"
               placeholder={"Address"}
@@ -87,6 +97,8 @@ class AccountPage extends React.Component {
               value={address}
               onChange={this.onChangeHandler}
               className="input"/>
+            <label className={"form__label"}>If you want to change your
+            password, please fill the following fields:</label>
             <input
               type="password"
               placeholder="Current password"
@@ -114,14 +126,18 @@ class AccountPage extends React.Component {
               disabled={!password}
               className="input"/>
             <div
-              className={`account__submit-response ${ reason ? "account__submit-response--error" : ""}`}>
+              className={`account__submit-response
+                ${ reason ? "account__submit-response--error" : ""}`}>
               {reason ? reason : success ? "Changes were successfully applied" : ""}
             </div>
             <button
               type={"submit"}
-              className={"button"}
+              className={"account__button button"}
               disabled={!isChanged}>Apply changes</button>
           </form>
+          <button
+            onClick={this.props.setModal}
+            className={"account__button button button--danger"}>Delete account</button>
         </Section>
       </main>
     )
@@ -133,7 +149,15 @@ const mapStateToProsp = ({user}) => {
   return {first_name, last_name, phone, email, address}
 }
 
+const mapStateToDispatch = (dispatch) => {
+  return {
+    setUser: (user) => dispatch(setUser(user)),
+    setModal: () => dispatch(setUserModal("OPEN_DELETE_CONFIRM_MODAL")),
+    updateUser: (user) => console.log(user)//customize THE FUNCTION
+  }
+}
+
 export default
   withService(
-    connect(mapStateToProsp)(AccountPage)
+    connect(mapStateToProsp, mapStateToDispatch)(AccountPage)
   );
