@@ -17,8 +17,10 @@ export const closeModal = () => {
   }
 }
 
-export const setUserModal = (type) => {
+export const setUserModal = (type, payload) => {
   switch (type) {
+    case ("OPEN_INFO_MODAL"):
+      return {type, payload};
     case ("OPEN_LOGIN_MODAL"):
       return {type};
     case ("OPEN_SIGNIN_MODAL"):
@@ -26,7 +28,7 @@ export const setUserModal = (type) => {
     case ("OPEN_LOGOUT_CONFIRM_MODAL"):
       return {type};
     case ("OPEN_DELETE_CONFIRM_MODAL"):
-      return {type};
+      return {type, payload};
     default:
       throw Error(`There is no such type like ${type}`);
   }
@@ -90,4 +92,20 @@ export const fetchProduct = (getProduct, id, dispatch) => {
       dispatch(setProduct({item, id}));
       dispatch(setProductLoading(false));
     });
+}
+
+export const fetchDeleteUser = (deleteUserService, _id, password, dispatch) => {
+  deleteUserService(_id, password)
+    .then((response) => {
+      if (response.status !== "-1") return dispatch(logoutUser());
+
+      dispatch(setUserModal("OPEN_INFO_MODAL", response.reason));
+  })
+}
+
+export const updateUser = (payload) => {
+  return {
+    type: "UPDATE_USER",
+    payload
+  }
 }

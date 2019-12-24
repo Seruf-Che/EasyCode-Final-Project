@@ -4,17 +4,32 @@ const setModal = (state, action) => {
   }
 
   switch (action.type) {
+    case "OPEN_INFO_MODAL":
+      return {
+        type: "info",
+        text: action.payload
+      };
+      
     case "OPEN_LOGIN_MODAL":
-      return "login";
+      return {
+        type: "login"
+      };
 
     case "OPEN_SIGNIN_MODAL":
-      return "signin";
+      return {
+        type: "signin"
+      };
 
     case "OPEN_LOGOUT_CONFIRM_MODAL":
-      return "logoutConfirm";
+      return {
+        type: "logoutConfirm"
+      };
 
     case "OPEN_DELETE_CONFIRM_MODAL":
-      return "accountDeletingConfirm";
+      return {
+        type: "accountDeletingConfirm",
+        params: action.payload
+      }
 
     case "CLOSE_MODAL":
       return {};

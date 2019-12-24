@@ -34,7 +34,6 @@ export default class Service{
   };
 
   logIn = async(email, password) => {
-    console.log("User was fetched");
     const URL = `${this.urlBase}users/login`;
 
     const response = await fetch(URL , {
@@ -46,7 +45,6 @@ export default class Service{
   };
 
   signIn = async(user={}) => {
-    console.log("SignIn was fetched");
     const {first_name, last_name, phone, email, password} = user;
 
     const URL = `${this.urlBase}users/signin`;
@@ -60,7 +58,6 @@ export default class Service{
   };
 
   updateUser = async(user={}) => {
-    console.log("Update user was fetched");
     const {_id, first_name, last_name, phone, email, address, password, new_password} = user;
 
     const URL = `${this.urlBase}users/update-user`;
@@ -68,6 +65,19 @@ export default class Service{
     const response = await fetch(URL , {
       method: "post",
       headers: {_id, first_name, last_name, phone, email, address, password, new_password}
+    });
+
+    return await response.json();
+  };
+
+  deleteUser = async(user={}) => {
+    const {_id, password} = user;
+
+    const URL = `${this.urlBase}users/delete-user`;
+
+    const response = await fetch(URL , {
+      method: "post",
+      headers: {_id, password}
     });
 
     return await response.json();

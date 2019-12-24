@@ -18,6 +18,16 @@ const setUser = (state, action) => {
         address: action.payload.address,
         _id: action.payload._id
       };
+    case "UPDATE_USER":
+      return {
+        isLogin: true,
+        first_name: action.payload.first_name,
+        last_name: action.payload.last_name,
+        phone: action.payload.phone,
+        email: action.payload.email,
+        address: action.payload.address,
+        _id: action.payload._id
+      };
     case "SUCCESS_LOGOUT":
       return defaultState;
     default:

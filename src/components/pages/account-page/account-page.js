@@ -1,8 +1,9 @@
 import React from "react";
 import Section from "../../wrappers-components/section/section";
+import Spinner from "../../spinner/spinner";
 import {connect} from "react-redux";
 import withService from "../../hoc/with-service";
-import {setUser, setUserModal} from "../../../actions/";
+import {setUser, setUserModal, updateUser} from "../../../actions/";
 
 class AccountPage extends React.Component {
 
@@ -18,7 +19,8 @@ class AccountPage extends React.Component {
     newConfirmPassword: "",
     reason: "",
     success: false,
-    isChanged: false
+    isChanged: false,
+    loading: false
   }
 
   onChangeHandler = e => {
@@ -33,26 +35,36 @@ class AccountPage extends React.Component {
 
   onSubmitHandler = (e) => {
     e.preventDefault();
+    
     const {_id, first_name, last_name, phone, email, address, password,
       new_password, newConfirmPassword} = this.state;
 
-    if (password) {
-      if (new_password.length < 1) return this.setState({reason: "Please type new password"});
+    if (new_password) {
       if (new_password !== newConfirmPassword) return this.setState({reason: "Confirm password doesn't match"});
     }
-
-    this.setState({success: true, isChanged: false});
-    this.props.updateUser({_id, first_name, last_name, phone, email, address, password,
-      new_password, newConfirmPassword});
-    this.props.setUser({first_name, last_name, phone, email, address})
+    this.setState({loading: true});
+    const {service} = this.props;
+    
+    service.updateUser({_id, first_name, last_name, phone, email, address, password, new_password, newConfirmPassword})
+     .then(response => {
+         if (response.status === "-1") {
+           this.setState({reason: response.reason})
+         }
+         
+         this.props.updateUser({_id, first_name, last_name, phone, email, address});
+         this.setState({loading: false});
+         this.setState({success: true, isChanged: false});
+       }
+     );
   }
 
   render() {
-    const {first_name, last_name, phone, email, address, password,
+    const {_id, first_name, last_name, phone, email, address, password, loading,
       new_password, newConfirmPassword, reason, success, isChanged} = this.state;
 
     return (
       <main>
+        {loading ? <Spinner fixed={true}/>: ""}
         <Section heading={`Hello ${this.props.first_name}`}>
           <form onSubmit={this.onSubmitHandler}>
             <label className={"form__label"}>Your First Name</label>
@@ -137,7 +149,7 @@ class AccountPage extends React.Component {
               disabled={!isChanged}>Apply changes</button>
           </form>
           <button
-            onClick={this.props.setModal}
+            onClick={() => this.props.setModal({_id, password})}
             className={"account__button button button--danger"}>Delete account</button>
         </Section>
       </main>
@@ -153,8 +165,8 @@ const mapStateToProsp = ({user}) => {
 const mapStateToDispatch = (dispatch) => {
   return {
     setUser: (user) => dispatch(setUser(user)),
-    setModal: () => dispatch(setUserModal("OPEN_DELETE_CONFIRM_MODAL")),
-    updateUser: (user) => dispatch("UPDATE_USER", user)//customize THE FUNCTION
+    setModal: (_id, password) => dispatch(setUserModal("OPEN_DELETE_CONFIRM_MODAL", {_id, password})),
+    updateUser: (user) => dispatch(updateUser(user))
   }
 }
 
