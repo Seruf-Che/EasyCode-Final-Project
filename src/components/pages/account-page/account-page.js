@@ -7,13 +7,14 @@ import {setUser, setUserModal} from "../../../actions/";
 class AccountPage extends React.Component {
 
   state = {
+    _id: this.props._id,
     first_name: this.props.first_name,
     last_name: this.props.last_name,
     phone: this.props.phone,
     email: this.props.email,
     address: this.props.address,
     password: "",
-    newPassword: "",
+    new_password: "",
     newConfirmPassword: "",
     reason: "",
     success: false,
@@ -32,23 +33,23 @@ class AccountPage extends React.Component {
 
   onSubmitHandler = (e) => {
     e.preventDefault();
-    const {first_name, last_name, phone, email, address, password,
-      newPassword, newConfirmPassword} = this.state;
+    const {_id, first_name, last_name, phone, email, address, password,
+      new_password, newConfirmPassword} = this.state;
 
     if (password) {
-      if (newPassword.length < 1) return this.setState({reason: "Please type new password"});
-      if (newPassword !== newConfirmPassword) return this.setState({reason: "Confirm password doesn't match"});
+      if (new_password.length < 1) return this.setState({reason: "Please type new password"});
+      if (new_password !== newConfirmPassword) return this.setState({reason: "Confirm password doesn't match"});
     }
 
     this.setState({success: true, isChanged: false});
-    this.props.updateUser({first_name, last_name, phone, email, address, password,
-      newPassword, newConfirmPassword});
+    this.props.updateUser({_id, first_name, last_name, phone, email, address, password,
+      new_password, newConfirmPassword});
     this.props.setUser({first_name, last_name, phone, email, address})
   }
 
   render() {
     const {first_name, last_name, phone, email, address, password,
-      newPassword, newConfirmPassword, reason, success, isChanged} = this.state;
+      new_password, newConfirmPassword, reason, success, isChanged} = this.state;
 
     return (
       <main>
@@ -110,9 +111,9 @@ class AccountPage extends React.Component {
             <input
               type="password"
               placeholder="New Password"
-              name="newPassword"
+              name="new_password"
               autoComplete="current-password"
-              value={newPassword}
+              value={new_password}
               onChange={this.onChangeHandler}
               disabled={!password}
               className="input"/>
@@ -145,15 +146,15 @@ class AccountPage extends React.Component {
 }
 
 const mapStateToProsp = ({user}) => {
-  const {first_name, last_name, phone, email, address} = user;
-  return {first_name, last_name, phone, email, address}
+  const {_id, first_name, last_name, phone, email, address} = user;
+  return {_id, first_name, last_name, phone, email, address}
 }
 
 const mapStateToDispatch = (dispatch) => {
   return {
     setUser: (user) => dispatch(setUser(user)),
     setModal: () => dispatch(setUserModal("OPEN_DELETE_CONFIRM_MODAL")),
-    updateUser: (user) => console.log(user)//customize THE FUNCTION
+    updateUser: (user) => dispatch("UPDATE_USER", user)//customize THE FUNCTION
   }
 }
 
