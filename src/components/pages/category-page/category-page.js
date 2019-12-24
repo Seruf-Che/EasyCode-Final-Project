@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {fetchCategoryList} from "../../../actions";
+import {fetchCategoryList} from "../../../actions/products";
 import withService from "../../hoc/with-service";
 import Section from "../../wrappers-components/section/section";
 import CategoryList from "../../category-list/category-list";

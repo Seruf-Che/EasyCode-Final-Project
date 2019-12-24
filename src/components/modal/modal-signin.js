@@ -52,7 +52,11 @@ class ModalSignin extends React.Component {
             .then(response => setUser({...response}));
             setTimeout(()=>close(), 1500);
          }
-         this.setState({loading: false});
+         this.setState({
+           loading: false,
+           confirmPassword: "",
+           password: ""
+         });
        }
      );
   }

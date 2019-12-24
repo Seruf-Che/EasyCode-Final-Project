@@ -1,3 +1,5 @@
+import * as actTyps from "../actions/action-types";
+
 const setProduct = (state, action) => {
   if (state === undefined) {
     return {
@@ -7,7 +9,7 @@ const setProduct = (state, action) => {
   }
   
   switch (action.type) {
-    case "SET_PRODUCT":
+    case actTyps.SET_PRODUCT:
       const {item, id} = action.payload; 
       return {
         ...state.products,
@@ -17,7 +19,7 @@ const setProduct = (state, action) => {
         }
       };
       
-    case "SET_PRODUCT_LOADING":
+    case actTyps.SET_PRODUCT_LOADING:
       return {
         ...state.products,
         isLoading: action.payload

@@ -1,14 +1,14 @@
-const defaultState = {
-  isLogin: false
-}
+import * as actTyps from "../actions/action-types";
 
 const setUser = (state, action) => {
   if (state === undefined) {
-    return defaultState
-  }
+    return {
+      isLogin: false
+    };
+  };
 
   switch (action.type){
-    case "SUCCESS_LOGIN":
+    case actTyps.SUCCESS_LOGIN:
       return {
         isLogin: true,
         first_name: action.payload.first_name,
@@ -18,7 +18,7 @@ const setUser = (state, action) => {
         address: action.payload.address,
         _id: action.payload._id
       };
-    case "UPDATE_USER":
+    case actTyps.UPDATE_USER:
       return {
         isLogin: true,
         first_name: action.payload.first_name,
@@ -28,8 +28,10 @@ const setUser = (state, action) => {
         address: action.payload.address,
         _id: action.payload._id
       };
-    case "SUCCESS_LOGOUT":
-      return defaultState;
+    case actTyps.SUCCESS_LOGOUT:
+      return {
+      isLogin: false
+    };
     default:
       return state.user
   }

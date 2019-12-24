@@ -1,7 +1,8 @@
 import React from "react";
 import withService from "../hoc/with-service";
 import {connect} from "react-redux";
-import {closeModal, setUser, logoutUser, fetchDeleteUser} from "../../actions/";
+import {closeModal} from "../../actions/modal";
+import {setUser, logoutUser, fetchDeleteUser} from "../../actions/user";
 import ModalLogin from "./modal-login";
 import ModalSignin from "./modal-signin";
 import ModalCofirm from "./modal-confirm";
@@ -48,7 +49,7 @@ const mapStateToDispatch = (dispatch, ownProps) => {
     close: () => dispatch(closeModal()),
     setUser: (user) => dispatch(setUser(user)),
     logoutUser: () => dispatch(logoutUser()),
-    deleteUser: ({_id, password}) => fetchDeleteUser(service.deleteUser, _id, password, dispatch)//CUSTOMIZE THE FUNCTION
+    deleteUser: ({_id, password}) => fetchDeleteUser(service.deleteUser, _id, password, dispatch)
   }
 }
 

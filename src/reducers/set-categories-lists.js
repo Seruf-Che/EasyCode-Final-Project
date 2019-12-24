@@ -1,3 +1,5 @@
+import * as actTyps from "../actions/action-types";
+
 const setCategoriesLists = (state, action) => {
   if(state === undefined) {
     return {
@@ -7,7 +9,7 @@ const setCategoriesLists = (state, action) => {
   }
 
   switch (action.type) {
-    case "CREATE_CATEGORY_LIST":
+    case actTyps.CREATE_CATEGORY_LIST:
       const {id, list} = action.payload;
       return {
         ...state.categoriesLists,
@@ -17,7 +19,7 @@ const setCategoriesLists = (state, action) => {
         }
       };
 
-    case "SET_CATEGORY_LOADING":
+    case actTyps.SET_CATEGORY_LOADING:
       return {
         ...state.categoriesLists,
         loading: action.payload

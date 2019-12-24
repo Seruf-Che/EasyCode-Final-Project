@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {fetchProduct} from "../../../actions";
+import {fetchProduct} from "../../../actions/products";
 import withService from "../../hoc/with-service";
 import Section from "../../wrappers-components/section/section";
 import BestSales from "../../best-sales/best-sales";

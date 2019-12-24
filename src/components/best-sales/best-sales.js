@@ -1,7 +1,7 @@
 import React from "react";
 import withService from "../hoc/with-service";
 import {connect} from "react-redux";
-import {fetchBestSalesList} from "../../actions";
+import {fetchBestSalesList} from "../../actions/products";
 import ProductCard from "../cards/product-card/product-card";
 
 class BestSales extends React.Component {

@@ -3,7 +3,8 @@ import Section from "../../wrappers-components/section/section";
 import Spinner from "../../spinner/spinner";
 import {connect} from "react-redux";
 import withService from "../../hoc/with-service";
-import {setUser, setUserModal, updateUser} from "../../../actions/";
+import {setUserModal} from "../../../actions/modal";
+import {setUser, updateUser} from "../../../actions/user";
 
 class AccountPage extends React.Component {
 
@@ -48,12 +49,11 @@ class AccountPage extends React.Component {
     service.updateUser({_id, first_name, last_name, phone, email, address, password, new_password, newConfirmPassword})
      .then(response => {
          if (response.status === "-1") {
-           this.setState({reason: response.reason})
+           return this.setState({loading: false, reason: response.reason, password: "", new_password: "", newConfirmPassword: ""})
          }
          
          this.props.updateUser({_id, first_name, last_name, phone, email, address});
-         this.setState({loading: false});
-         this.setState({success: true, isChanged: false});
+         this.setState({loading: false, success: true, isChanged: false, password: "", new_password: "", newConfirmPassword: ""});
        }
      );
   }

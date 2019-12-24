@@ -37,7 +37,10 @@ class ModalLogin extends React.Component {
           this.setState({success: true});
           setTimeout(()=>close(), 1500);
         }
-        this.setState({loading: false});
+        this.setState({
+          loading: false,
+          password: ""
+        });
       }
     );
   }

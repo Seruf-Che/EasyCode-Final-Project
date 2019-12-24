@@ -1,11 +1,12 @@
-const setBestSalesList = (state, action) => {
+import * as actTyps from "../actions/action-types";
 
+const setBestSalesList = (state, action) => {
     if(state === undefined) {
         return {}
     }
 
     switch (action.type) {
-        case "CREATE_BEST_SALES_LIST":
+        case actTyps.CREATE_BEST_SALES_LIST:
             return action.payload;
         default:
             return state.bestSales;
