@@ -53,5 +53,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-//li.navigation__item*6>Navlink.navigation__link[to=""]>{item$}

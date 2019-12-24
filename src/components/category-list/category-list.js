@@ -16,6 +16,6 @@ const CategoryList = ({list, isLoading}) => {
       }     
     </div>
   )
-}
+};
 
 export default CategoryList;

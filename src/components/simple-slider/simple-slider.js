@@ -7,7 +7,6 @@ import slide3 from "./images/3.jpg";
 import slide4 from "./images/4.jpg";
 
 const SimpleSlider = () => {
-  
   const settings = {
           dots: true,
           infinite: true,
@@ -23,7 +22,6 @@ const SimpleSlider = () => {
         };
   
   return (
-
       <div className="slider">
         <Slider {...settings}>
           <div>
@@ -41,7 +39,7 @@ const SimpleSlider = () => {
         </Slider>
       </div>
 
-  ); 
-}
+  );
+};
 
 export default SimpleSlider;

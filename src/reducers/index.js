@@ -13,6 +13,6 @@ const reducer = (state, action) => {
     categoriesLists: setCategoriesLists(state, action),
     products: setProduct(state, action)
   }
-}
+};
 
 export default reducer;

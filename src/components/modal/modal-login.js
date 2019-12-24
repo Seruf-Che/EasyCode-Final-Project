@@ -1,5 +1,6 @@
 import React from "react";
 import withService from "../hoc/with-service";
+
 import Spinner from "../spinner/spinner";
 
 class ModalLogin extends React.Component {
@@ -10,7 +11,7 @@ class ModalLogin extends React.Component {
     success: false,
     reason: "",
     loading: false
-  }
+  };
 
   onChangeHandler = (e) => {
     const {name, value} = e.currentTarget;
@@ -18,7 +19,7 @@ class ModalLogin extends React.Component {
       [name]: value,
       reason: ""
     })
-  }
+  };
 
   onSubmitHandler = (e) => {
     e.preventDefault();
@@ -43,7 +44,7 @@ class ModalLogin extends React.Component {
         });
       }
     );
-  }
+  };
 
   render() {
     const {close} = this.props;
@@ -96,7 +97,7 @@ class ModalLogin extends React.Component {
         </form>
       </div>
     )
-  }
-}
+  };
+};
 
 export default withService(ModalLogin);

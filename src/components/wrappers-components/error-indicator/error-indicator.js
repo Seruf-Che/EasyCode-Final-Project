@@ -4,17 +4,17 @@ class ErrorIndicator extends React.Component{
   
   state = {
     error: false
-  }
+  };
 
   componentDidCatch(error) {
     this.setState({
       error
     })
-  }
+  };
 
   onReloadHandler = () => {
     window.location.reload(true);
-  }
+  };
   
   render(){
     if (this.state.error) return (
@@ -27,7 +27,7 @@ class ErrorIndicator extends React.Component{
     )
     
     return this.props.children   
-  }
-}
+  };
+};
 
 export default ErrorIndicator;

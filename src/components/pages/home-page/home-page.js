@@ -16,6 +16,6 @@ const HomePage = () => {
       </Section>
     </main>
   )
-}
+};
 
 export default HomePage

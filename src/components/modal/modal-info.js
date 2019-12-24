@@ -2,6 +2,7 @@ import React from "react";
 
 const ModalInfo = (props) => {
   const {close, text} = props;
+  
   return(
     <section className={"modal"} onClick={close}>
       <div
@@ -19,6 +20,6 @@ const ModalInfo = (props) => {
       </div>
     </section>
   )
-}
+};
 
 export default ModalInfo;

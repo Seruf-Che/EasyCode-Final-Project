@@ -8,7 +8,7 @@ class BestSales extends React.Component {
 
   componentDidMount() {
     this.props.getBestSalesList();
-  }
+  };
 
   render() {
     const {bestSales = []} = this.props;
@@ -19,19 +19,19 @@ class BestSales extends React.Component {
           : ""}
       </div>
     )
-  }
+  };
 };
 
 const mapStateToProps = ({bestSales}) => {
   return {bestSales}
-}
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   const {service: {getBestSales}} = ownProps;
   return {
     getBestSalesList: () => fetchBestSalesList(getBestSales, dispatch)
-  }
-}
+  };
+};
 
 export default
   withService(

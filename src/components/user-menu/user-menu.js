@@ -1,5 +1,4 @@
 import * as actTyps from "../../actions/action-types";
-
 import React from "react";
 import {connect} from "react-redux";
 import {setUserModal} from "../../actions/modal";
@@ -26,16 +25,16 @@ const UserMenu = ({user, setUserModal, logout, isFooter}) => {
       }
     </div>
   )
-}
+};
 
 const mapStateToProps = ({user}) => {
   return {user}
-}
+};
 
 const mapStateToDispatch = (dispatch) => {
   return {
     setUserModal: (type) => dispatch(setUserModal(type))
   }
-}
+};
 
 export default connect(mapStateToProps, mapStateToDispatch)(UserMenu);

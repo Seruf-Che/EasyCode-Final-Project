@@ -9,6 +9,6 @@ const Spinner = ({small, fixed}) => {
       </div>
     </div>
   )
-}
+};
 
 export default Spinner;

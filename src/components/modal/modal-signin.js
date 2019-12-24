@@ -14,7 +14,7 @@ class ModalSignin extends React.Component {
     reason: "",
     confirmPassword: "",
     loading: false
-  }
+  };
 
   onChangeHandler = (e) => {
     const {name, value} = e.currentTarget;
@@ -22,7 +22,7 @@ class ModalSignin extends React.Component {
       [name]: value,
       reason: ""
     })
-  }
+  };
 
   onSubmitHandler = (e) => {
     e.preventDefault();
@@ -59,7 +59,7 @@ class ModalSignin extends React.Component {
          });
        }
      );
-  }
+  };
 
   render() {
     const {close} = this.props;
@@ -147,7 +147,7 @@ class ModalSignin extends React.Component {
         </form>
       </div>
     )
-  }
-}
+  };
+};
 
 export default withService(ModalSignin);

@@ -16,6 +16,6 @@ const Page404 = (props) => {
       </div>
     </div>
   )
-}
+};
 
 export default withRouter(Page404);

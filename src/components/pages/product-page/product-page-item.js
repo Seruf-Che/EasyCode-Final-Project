@@ -10,16 +10,16 @@ const ProductPageItem = ({item}) => {
       <h1 className="product-page__model">{model}</h1>
       <div className="product-page__price">
       Price: { stoсkPrice ?
-      <><span className="product-page__old-price">{price}$</span> {stoсkPrice}$</>
-      :
-      `${price}$`
-      }
+        <><span className="product-page__old-price">{price}$</span> {stoсkPrice}$</>
+        :
+        `${price}$`
+        }
       </div>
       <p className="product-page__description">{description}</p>
       <button className={"button"}>Add to cart</button>
       </div>
     </article>
   )
-}
+};
 
 export default ProductPageItem;

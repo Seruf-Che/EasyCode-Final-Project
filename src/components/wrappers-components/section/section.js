@@ -9,6 +9,6 @@ const Section = ({children, heading}) => {
       </div>
     </section>
   )
-}
+};
 
 export default Section;

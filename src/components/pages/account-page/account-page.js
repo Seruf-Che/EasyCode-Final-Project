@@ -22,7 +22,7 @@ class AccountPage extends React.Component {
     success: false,
     isChanged: false,
     loading: false
-  }
+  };
 
   onChangeHandler = e => {
     const {name, value} = e.currentTarget;
@@ -32,7 +32,7 @@ class AccountPage extends React.Component {
       success: false,
       isChanged: true
     })
-  }
+  };
 
   onSubmitHandler = (e) => {
     e.preventDefault();
@@ -56,7 +56,7 @@ class AccountPage extends React.Component {
          this.setState({loading: false, success: true, isChanged: false, password: "", new_password: "", newConfirmPassword: ""});
        }
      );
-  }
+  };
 
   render() {
     const {_id, first_name, last_name, phone, email, address, password, loading,
@@ -154,13 +154,13 @@ class AccountPage extends React.Component {
         </Section>
       </main>
     )
-  }
-}
+  };
+};
 
 const mapStateToProsp = ({user}) => {
   const {_id, first_name, last_name, phone, email, address} = user;
   return {_id, first_name, last_name, phone, email, address}
-}
+};
 
 const mapStateToDispatch = (dispatch) => {
   return {
@@ -168,7 +168,7 @@ const mapStateToDispatch = (dispatch) => {
     setModal: (_id, password) => dispatch(setUserModal("OPEN_DELETE_CONFIRM_MODAL", {_id, password})),
     updateUser: (user) => dispatch(updateUser(user))
   }
-}
+};
 
 export default
   withService(

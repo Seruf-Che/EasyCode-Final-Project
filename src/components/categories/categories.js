@@ -39,7 +39,7 @@ const categories = [
     name: "iMac",
     img: img4
   },
-]
+];
 
 const Categories = () => {
   return (
@@ -47,6 +47,6 @@ const Categories = () => {
       {categories.map(e => <CategoriesItem item={e} key={e.id}/>)}
     </div>
   )
-}
+};
 
 export default Categories;

@@ -23,6 +23,6 @@ const ModalCofirm = (props) => {
       </div>
     </section>
   )
-}
+};
 
 export default ModalCofirm;

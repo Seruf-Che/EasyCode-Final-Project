@@ -47,19 +47,19 @@ class ProductPage extends React.Component {
         </Section>
       </main>
     )
-  }
-}
+  };
+};
 
 const mapStateToProps = ({products}) => {
   return {products}
-}
+};
 
 const mapStateToDispatch = (dispatch, ownProps) => {
   const {service: {getCurrentDevice}} = ownProps;
   return {
     setProduct: (id) => fetchProduct(getCurrentDevice, id, dispatch)
   }
-}
+};
 
 export default 
   withService(
