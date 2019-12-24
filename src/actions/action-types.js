@@ -16,3 +16,7 @@ export const SET_PRODUCT_LOADING = "SET_PRODUCT_LOADING";
 export const SUCCESS_LOGIN = "SUCCESS_LOGIN";
 export const UPDATE_USER = "UPDATE_USER";
 export const SUCCESS_LOGOUT = "SUCCESS_LOGOUT";
+
+export const ADD_TO_CART = "ADD_TO_CART";
+export const CHANGE_COUNT = "CHANGE_COUNT";
+export const CLEAR_CART = "CLEAR_CART";
