@@ -1,5 +1,6 @@
 import React from "react";
 import {Switch, Route} from "react-router-dom";
+import ScrollToTop from "../wrappers-components/scroll-to-top/scroll-to-top";
 
 import Modal from "../modal/modal"
 import Header from "../header/header";
@@ -22,7 +23,11 @@ const App = () => {
           <HomePage />
         </Route>
         <Route path="/product/:id" exact
-          render={({match}) => <ProductPage id={match.params.id}/>} />
+          render={({match}) =>
+            <ScrollToTop>
+              <ProductPage id={match.params.id}/>
+            </ScrollToTop>
+          }/>
         <Route path="/category/:id" exact
           render={({match}) => <CategoryPage id={match.params.id}/>} />
         <LoggedRouter path="/cart" exact>

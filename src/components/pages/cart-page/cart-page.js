@@ -8,8 +8,7 @@ import CartPageItem from "./cart-page-item";
 
 const CartPage = ({cart = {}, setCount, clearCart}) => {
   const {list} = cart;
-  console.log("list", list);
-  console.log("Cart", cart);
+
   return (
     <main>
       <Section heading={"Your cart"}>

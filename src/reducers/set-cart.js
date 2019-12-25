@@ -19,9 +19,6 @@ const setCart = (state, action) => {
 
   const changeCount = (state, payload) => {
     const { id, count } = payload;
-    console.log("Payload", payload);
-    console.log("id", id);
-    console.log("count", count);
 
     const { list } = state.cart;
     let newData = [];
@@ -34,7 +31,7 @@ const setCart = (state, action) => {
         };
 
         if (newItem.count > 0) return newData = [...newData, newItem];
-        return;
+        return false;
       }
       return newData = [...newData, el];
     });
