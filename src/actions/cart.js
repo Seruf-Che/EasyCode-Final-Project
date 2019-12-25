@@ -13,3 +13,9 @@ export const setCount = (payload) => {
         payload
     }
 };
+
+export const clearCart = () => {
+    return {
+        type: actTyps.CLEAR_CART,
+    }
+};

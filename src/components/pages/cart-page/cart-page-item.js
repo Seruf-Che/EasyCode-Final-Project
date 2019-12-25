@@ -1,4 +1,5 @@
 import React from "react";
+import SvgTrashIcon from "../../svgs/trash-icon";
 
 const CartPageItem = ({item, index, setCount}) => {
   const {id, model, img, description, count, stoсkPrice, price} = item;
@@ -13,9 +14,9 @@ const CartPageItem = ({item, index, setCount}) => {
       <div className="cart-page__count">{count}</div>
       <div className="cart-page__price">{stoсkPrice ? stoсkPrice : price}$</div>
       <div className="cart-page__value">
-        <span onClick={()=> setCount(id, -1)}>DEC</span>
-        <span>remove</span>
-        <span onClick={()=> setCount(id, 1)}>INC</span>
+        <button onClick={()=> setCount(id, -1)} className={"cart-page__count-icon"}>-</button>
+        <button onClick={()=> setCount(id, -Infinity)} className={"cart-page__trash-icon"}><SvgTrashIcon /></button>
+        <button onClick={()=> setCount(id, 1)} className={"cart-page__count-icon"}>+</button>
       </div>
     </div>
   )

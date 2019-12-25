@@ -21,13 +21,13 @@ const App = () => {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/cart" exact>
-          <CartPage />
-        </Route>
         <Route path="/product/:id" exact
           render={({match}) => <ProductPage id={match.params.id}/>} />
         <Route path="/category/:id" exact
           render={({match}) => <CategoryPage id={match.params.id}/>} />
+        <LoggedRouter path="/cart" exact>
+          <CartPage />
+        </LoggedRouter>
         <LoggedRouter path="/account" exact>
           <AccountPage />
         </LoggedRouter>
