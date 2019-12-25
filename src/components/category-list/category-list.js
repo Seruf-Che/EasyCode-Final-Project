@@ -2,9 +2,9 @@ import React from "react";
 import ProductCard from "../cards/product-card/product-card";
 import Spinner from "../spinner/spinner";
 
-const CategoryList = ({list, isLoading}) => {
-  let status = list ? (list.status ? list.status: false): false;
-  
+const CategoryList = ({list, isLoading}) => {  
+  let status = list ? (list.status ? list.reason: false): false;
+
   if (status) return <div className={"category-list"}>{status}</div>
   
   return (
