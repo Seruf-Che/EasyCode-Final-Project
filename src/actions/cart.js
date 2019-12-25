@@ -6,3 +6,10 @@ export const addToCart = (payload) => {
     payload
   }
 }
+
+export const setCount = (payload) => {
+    return {
+        type: actTyps.CHANGE_COUNT,
+        payload
+    }
+};

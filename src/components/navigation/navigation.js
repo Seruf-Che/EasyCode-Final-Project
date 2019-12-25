@@ -27,25 +27,25 @@ const Navigation = () => {
           <NavLink 
             className="navigation__link"
             activeClassName="navigation__link--current" 
-            to="/category/1">MacBook</NavLink>
+            to="/category/637125">MacBook</NavLink>
         </li>
         <li className="navigation__item">
           <NavLink 
             className="navigation__link"
             activeClassName="navigation__link--current" 
-            to="/category/2">IMac</NavLink>
+            to="/category/428915">IMac</NavLink>
         </li>
         <li className="navigation__item">
           <NavLink 
             className="navigation__link"
             activeClassName="navigation__link--current" 
-            to="/category/3">Accessories</NavLink>
+            to="/category/556156">Accessories</NavLink>
         </li>
         <li className="navigation__item">
           <NavLink 
             className="navigation__link"
             activeClassName="navigation__link--current" 
-            to="/category/4">Apple Watch</NavLink>
+            to="/category/687814">Apple Watch</NavLink>
         </li>
       </ul>
     </nav>

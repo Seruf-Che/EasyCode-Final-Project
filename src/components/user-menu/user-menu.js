@@ -4,6 +4,8 @@ import {connect} from "react-redux";
 import {setUserModal} from "../../actions/modal";
 import {Link} from "react-router-dom";
 
+import CartButton from "../cart-button/cart-button";
+
 const UserMenu = ({user, setUserModal, logout, isFooter}) => {
   return (
     <div className={"user-menu"}>
@@ -12,6 +14,7 @@ const UserMenu = ({user, setUserModal, logout, isFooter}) => {
           <>
             {isFooter ? "" : <span>Hello <Link to="/account" className={"user-menu__name"}>{user.first_name}</Link></span>}
             <button onClick={() => setUserModal(actTyps.OPEN_LOGOUT_CONFIRM_MODAL)} className={"user-menu__button"}>LogOut</button>
+            <CartButton />
           </>
         :
           <>

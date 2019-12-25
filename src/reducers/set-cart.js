@@ -19,6 +19,10 @@ const setCart = (state, action) => {
   
   const changeCount = (state, payload) => {
     const { id, count } = payload;
+    console.log("Payload", payload);
+    console.log("id", id);
+    console.log("count", count);
+    
     const { list } = state.cart;
     let newData = [];
 
@@ -43,8 +47,9 @@ const setCart = (state, action) => {
     let sum = 0;
 
     list.forEach(el => {
+      let price = el.stoсkPrice ? el.stoсkPrice : el.price
       count += el.count;
-      sum += el.price * el.count;
+      sum += price * el.count;
     });
 
     return {list, sum, count}

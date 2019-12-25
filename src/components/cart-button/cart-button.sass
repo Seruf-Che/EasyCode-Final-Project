@@ -1,0 +1,61 @@
+.footer__inner .cart-button
+  display: none
+
+.cart-button
+  position: relative
+  margin-left: 20px
+  text-decoration: none
+  background: transparent
+  border: none  
+  
+  &__wrapper
+    display: flex
+    flex-direction: column
+  
+  &__icon
+    width: 40px
+    height: 40px
+    fill: $color-header
+    transition: $transition
+    
+  &__sum
+    margin-top: 5px
+    text-align: right
+    color: $color-header
+    font-size: 16px
+    line-height: 1em
+    font-family: $font-family
+    font-weight: 700
+    transition: $transition
+  
+  &:hover
+    cursor: pointer
+
+    .cart-button__icon
+      fill: $color-header-hover
+  
+    .cart-button__count
+      color: $color-header-hover
+      background-color: $color-header
+      
+    .cart-button__sum
+      color: $color-header-hover
+  
+  &__count
+    position: absolute
+    top: 0px
+    right: -5px
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 20px
+    height: 20px
+    color: $color-header
+    font-size: 12px
+    line-height: 1em
+    font-family: $font-family
+    font-weight: 700
+    background-color: $color-header-hover
+    border-radius: 50%
+    transition: $transition
+    

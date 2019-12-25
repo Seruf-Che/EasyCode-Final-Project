@@ -24,7 +24,9 @@ class ProductPageItem extends React.Component {
     const {model, price, stoсkPrice, img, description} = item;
     return (
       <article className="product-page__item">
-        <img src={img} alt="" className="product-page__img"/>
+        <div className="product-page__img">
+          <img src={img} alt={model}/>
+        </div>
         <div className="product-page__meta">
         <h1 className="product-page__model">{model}</h1>
         <div className="product-page__price">

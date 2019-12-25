@@ -8,6 +8,7 @@ import Page404 from "../pages/page-404/page-404";
 import CategoryPage from "../pages/category-page/category-page";
 import ProductPage from "../pages/product-page/product-page";
 import AccountPage from "../pages/account-page/account-page";
+import CartPage from "../pages/cart-page/cart-page";
 import Footer from "../footer/footer";
 import LoggedRouter from "../wrappers-components/logged-router/logged-router";
 
@@ -19,6 +20,9 @@ const App = () => {
       <Switch>
         <Route path="/" exact>
           <HomePage />
+        </Route>
+        <Route path="/cart" exact>
+          <CartPage />
         </Route>
         <Route path="/product/:id" exact
           render={({match}) => <ProductPage id={match.params.id}/>} />
