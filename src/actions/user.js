@@ -17,7 +17,10 @@ export const logoutUser = () => {
 export const fetchDeleteUser = (deleteUserService, _id, password, dispatch) => {
   deleteUserService(_id, password)
     .then((response) => {
-      if (response.status !== "-1") return dispatch(logoutUser());
+      if (response.status !== "-1") {
+        dispatch(setUserModal(actTyps.OPEN_INFO_MODAL, "The account was successfully deleted"));
+        return dispatch(logoutUser());
+      };
 
       dispatch(setUserModal(actTyps.OPEN_INFO_MODAL, response.reason));
   })

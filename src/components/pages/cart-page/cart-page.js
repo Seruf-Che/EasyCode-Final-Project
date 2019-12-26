@@ -13,7 +13,6 @@ const CartPage = ({cart = {}, setCount, clearCart}) => {
     <main>
       <Section heading={"Your cart"}>
         {list.length > 0 ?
-          <>
           <div className={"cart-page"}>
             {list.map((e, ind) => <CartPageItem
                                     key={e.id}
@@ -21,30 +20,31 @@ const CartPage = ({cart = {}, setCount, clearCart}) => {
                                     item={e}
                                     setCount={setCount}/>)}
           </div>
-          </>
           : "Your cart is empty"}
-          {list.length > 0 ?
-            <div className="cart-page__buttons">
-              <button
-                onClick={()=>alert("Order")}
-                className={"button"}>Make order</button>
+          {list.length > 0 ? <span className={"cart-page__sum"}>Total amount: {cart.sum}$</span>: ""}
+          <div className="cart-page__buttons">
+            {list.length > 0 ?
+              <Link
+                to={"/order"}
+                className={"button"}>Make order</Link>
+              : ""
+            }
+            <Link
+              to={"/shop"}
+              className={"button"}>Go to shop</Link>
+            {list.length > 0 ?
               <button
                 onClick={clearCart}
                 className={"button button--danger"}>Clear cart</button>
-            </div>
-            : <div className="cart-page__buttons">
-              <Link
-                to={"/shop"}
-                className={"button"}>Go to shop</Link>
-            </div>
-          }
+              : ""
+            }
+          </div>
       </Section>
     </main>
   )
 };
 
 const mapStateToProps = ({cart}) => {
-  console.log(cart);
   return {cart}
 }
 

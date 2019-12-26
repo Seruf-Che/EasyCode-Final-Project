@@ -1,5 +1,4 @@
 import React from "react";
-import withService from "../hoc/with-service";
 import Spinner from "../spinner/spinner";
 
 class ModalSignin extends React.Component {
@@ -150,4 +149,4 @@ class ModalSignin extends React.Component {
   };
 };
 
-export default withService(ModalSignin);
+export default ModalSignin;

@@ -11,6 +11,9 @@ input
 
   &:last-of-type
     margin-bottom: 0
+  
+  &:disabled
+    opacity: 0.3
 
 .button
   display: flex
@@ -33,17 +36,23 @@ input
   &:hover
     background-color: $color-bg
     color: $color-content
-
-  &--danger
-    background-color: $color-error
-    border-color: $color-error
-
-  &:active
-    opacity: 0.6
-
+  
   &:disabled
     opacity: 0.2
     cursor: default
     &:hover
       color: $color-bg
       background-color: $color-content
+
+  &--danger
+    background-color: $color-error
+    border-color: $color-error
+    
+    &:disabled:hover
+      color: $color-bg
+      background-color: $color-error
+
+  &:active
+    opacity: 0.6
+
+

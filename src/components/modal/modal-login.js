@@ -1,5 +1,4 @@
 import React from "react";
-import withService from "../hoc/with-service";
 
 import Spinner from "../spinner/spinner";
 
@@ -100,4 +99,4 @@ class ModalLogin extends React.Component {
   };
 };
 
-export default withService(ModalLogin);
+export default ModalLogin;

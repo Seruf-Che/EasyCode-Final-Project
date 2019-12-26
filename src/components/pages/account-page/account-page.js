@@ -107,11 +107,11 @@ class AccountPage extends React.Component {
               placeholder={"Address"}
               name="address"
               autoComplete="address"
-              value={address}
+              value={address ? address : ""}
               onChange={this.onChangeHandler}
               className="input"/>
             <label className={"form__label"}>If you want to change your
-            password, please fill the following fields:</label>
+            password or delete account, please fill the password field:</label>
             <input
               type="password"
               placeholder="Current password"
@@ -150,7 +150,8 @@ class AccountPage extends React.Component {
           </form>
           <button
             onClick={() => this.props.setModal({_id, password})}
-            className={"account__button button button--danger"}>Delete account</button>
+            className={"account__button button button--danger"}
+            disabled={!password}>Delete account</button>
         </Section>
       </main>
     )

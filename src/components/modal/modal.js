@@ -9,7 +9,7 @@ import ModalSignin from "./modal-signin";
 import ModalCofirm from "./modal-confirm";
 import ModalInfo from "./modal-info";
 
-const Modal = ({modal, close, setUser, signinUser, logoutUser, deleteUser}) => {
+const Modal = ({service, modal, close, setUser, logoutUser, deleteUser}) => {
   switch (modal.type) {
     case("info"):
       return <ModalInfo 
@@ -18,16 +18,17 @@ const Modal = ({modal, close, setUser, signinUser, logoutUser, deleteUser}) => {
     case("login"):
       return <ModalLogin
              close={close}
-             setUser={setUser}/>
+             setUser={setUser}
+             service={service}/>
     case("signin"):
       return <ModalSignin
               close={close}
               setUser={setUser}
-              signinUser={signinUser}/>
+              service={service}/>
     case("logoutConfirm"):
       return <ModalCofirm
               close={close}
-              callback={logoutUser}
+              callback={() => {logoutUser();close();}}
               text="Are you sure you want to log out?"/>
     case("accountDeletingConfirm"):
       return <ModalCofirm
@@ -39,8 +40,8 @@ const Modal = ({modal, close, setUser, signinUser, logoutUser, deleteUser}) => {
   }
 };
 
-const mapStateToProps = ({modal, service}) => {
-  return {modal, service}
+const mapStateToProps = ({modal}) => {
+  return {modal}
 };
 
 const mapStateToDispatch = (dispatch, ownProps) => {
