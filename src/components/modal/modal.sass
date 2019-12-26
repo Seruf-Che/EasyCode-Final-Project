@@ -15,7 +15,7 @@
     display: flex
     flex-direction: column
     justify-content: space-between
-    padding: 30px 30px
+    padding: 30px
     width: 480px
     min-height: 380px
     background-color: $color-bg
@@ -71,3 +71,13 @@
     color: $color-success
     &--error
       color: $color-error
+      
+  @media #{$mobile-width}
+   
+    &__inner
+      padding: 20px 10px
+      width: 300px
+    
+    &__heading
+      font-size: 26px
+      text-transform: none

@@ -20,3 +20,12 @@
     align-items: center
     margin: 0 30px
     width: 100%
+    
+  @media #{$tablet-width}
+    position: static
+    height: auto
+  
+    &__inner
+      flex-direction: column
+      text-align: center
+      padding: 15px 0

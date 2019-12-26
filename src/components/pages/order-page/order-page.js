@@ -5,7 +5,7 @@ import OrderPageAccount from "./order-page-account";
 import OrderPageCart from "./order-page-cart";
 
 import {connect} from "react-redux";
-import {Link, Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {setUserModal} from "../../../actions/modal";
 import {clearCart} from "../../../actions/cart";
 import * as actTyps from "../../../actions/action-types";
