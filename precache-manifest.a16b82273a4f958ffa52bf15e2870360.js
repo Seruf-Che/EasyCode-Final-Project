@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dbbd201f9e20b56a374fe9ed9bed7ecc",
+    "revision": "3f2414f4e28201d0ec123af30651bb4a",
     "url": "/EasyCode-Final-Project/index.html"
   },
   {
-    "revision": "7c002d519c86edb34333",
+    "revision": "c37715377355f28eb0f7",
     "url": "/EasyCode-Final-Project/static/css/main.64244df2.chunk.css"
   },
   {
-    "revision": "d669d9e3eff20118f007",
-    "url": "/EasyCode-Final-Project/static/js/2.40fbc01f.chunk.js"
+    "revision": "f15e964713aa39502b17",
+    "url": "/EasyCode-Final-Project/static/js/2.a2e0074e.chunk.js"
   },
   {
-    "revision": "7c002d519c86edb34333",
-    "url": "/EasyCode-Final-Project/static/js/main.05b66faa.chunk.js"
+    "revision": "c37715377355f28eb0f7",
+    "url": "/EasyCode-Final-Project/static/js/main.4b10a872.chunk.js"
   },
   {
     "revision": "eab41aa7b445fc71b41e",
