@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/EasyCode-Final-Project/static/css/main.64244df2.chunk.css",
+    "main.js": "/EasyCode-Final-Project/static/js/main.e243290c.chunk.js",
+    "main.js.map": "/EasyCode-Final-Project/static/js/main.e243290c.chunk.js.map",
+    "runtime-main.js": "/EasyCode-Final-Project/static/js/runtime-main.afb54eab.js",
+    "runtime-main.js.map": "/EasyCode-Final-Project/static/js/runtime-main.afb54eab.js.map",
+    "static/js/2.40fbc01f.chunk.js": "/EasyCode-Final-Project/static/js/2.40fbc01f.chunk.js",
+    "static/js/2.40fbc01f.chunk.js.map": "/EasyCode-Final-Project/static/js/2.40fbc01f.chunk.js.map",
+    "index.html": "/EasyCode-Final-Project/index.html",
+    "precache-manifest.96531eaa8accf0f45a36a4a452926485.js": "/EasyCode-Final-Project/precache-manifest.96531eaa8accf0f45a36a4a452926485.js",
+    "service-worker.js": "/EasyCode-Final-Project/service-worker.js",
+    "static/css/main.64244df2.chunk.css.map": "/EasyCode-Final-Project/static/css/main.64244df2.chunk.css.map",
+    "static/media/1.jpg": "/EasyCode-Final-Project/static/media/1.946d38c8.jpg",
+    "static/media/2.jpg": "/EasyCode-Final-Project/static/media/2.c419d765.jpg",
+    "static/media/3.jpg": "/EasyCode-Final-Project/static/media/3.40d73433.jpg",
+    "static/media/4.jpg": "/EasyCode-Final-Project/static/media/4.77b09f8b.jpg",
+    "static/media/404travolta.gif": "/EasyCode-Final-Project/static/media/404travolta.6e5f6ca4.gif",
+    "static/media/accessories.png": "/EasyCode-Final-Project/static/media/accessories.b67f1324.png",
+    "static/media/applewatch.png": "/EasyCode-Final-Project/static/media/applewatch.1e7cb0fc.png",
+    "static/media/imac.png": "/EasyCode-Final-Project/static/media/imac.fe57e0f6.png",
+    "static/media/ipad.jpg": "/EasyCode-Final-Project/static/media/ipad.6b74be9e.jpg",
+    "static/media/iphone.jpeg": "/EasyCode-Final-Project/static/media/iphone.500f19be.jpeg",
+    "static/media/logo-x2.png": "/EasyCode-Final-Project/static/media/logo-x2.71e7f38a.png",
+    "static/media/logo.png": "/EasyCode-Final-Project/static/media/logo.0515c5b7.png",
+    "static/media/macbook.png": "/EasyCode-Final-Project/static/media/macbook.9139f778.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.afb54eab.js",
+    "static/js/2.40fbc01f.chunk.js",
+    "static/css/main.64244df2.chunk.css",
+    "static/js/main.e243290c.chunk.js"
+  ]
+}
