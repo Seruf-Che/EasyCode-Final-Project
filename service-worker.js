@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/EasyCode-Final-Project/precache-manifest.a16b82273a4f958ffa52bf15e2870360.js"
+  "/EasyCode-Final-Project/precache-manifest.ec95d686e53e60387b4c35fec51ab80a.js"
 );
 
 self.addEventListener('message', (event) => {
