@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0de57a625a1ff98cc3381204bb47e11f",
+    "revision": "ce3a5ab0e2e25dc77890944888375340",
     "url": "/EasyCode-Final-Project/index.html"
   },
   {
-    "revision": "c37715377355f28eb0f7",
+    "revision": "dc2efa7597207c90db82",
     "url": "/EasyCode-Final-Project/static/css/main.64244df2.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/EasyCode-Final-Project/static/js/2.a2e0074e.chunk.js"
   },
   {
-    "revision": "c37715377355f28eb0f7",
-    "url": "/EasyCode-Final-Project/static/js/main.4b10a872.chunk.js"
+    "revision": "dc2efa7597207c90db82",
+    "url": "/EasyCode-Final-Project/static/js/main.f42e4655.chunk.js"
   },
   {
     "revision": "eab41aa7b445fc71b41e",

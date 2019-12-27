@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/EasyCode-Final-Project/static/css/main.64244df2.chunk.css",
-    "main.js": "/EasyCode-Final-Project/static/js/main.4b10a872.chunk.js",
-    "main.js.map": "/EasyCode-Final-Project/static/js/main.4b10a872.chunk.js.map",
+    "main.js": "/EasyCode-Final-Project/static/js/main.f42e4655.chunk.js",
+    "main.js.map": "/EasyCode-Final-Project/static/js/main.f42e4655.chunk.js.map",
     "runtime-main.js": "/EasyCode-Final-Project/static/js/runtime-main.afb54eab.js",
     "runtime-main.js.map": "/EasyCode-Final-Project/static/js/runtime-main.afb54eab.js.map",
     "static/js/2.a2e0074e.chunk.js": "/EasyCode-Final-Project/static/js/2.a2e0074e.chunk.js",
     "static/js/2.a2e0074e.chunk.js.map": "/EasyCode-Final-Project/static/js/2.a2e0074e.chunk.js.map",
     "index.html": "/EasyCode-Final-Project/index.html",
-    "precache-manifest.ec95d686e53e60387b4c35fec51ab80a.js": "/EasyCode-Final-Project/precache-manifest.ec95d686e53e60387b4c35fec51ab80a.js",
+    "precache-manifest.46d66a09b02b0b45f46f019d1b8c392c.js": "/EasyCode-Final-Project/precache-manifest.46d66a09b02b0b45f46f019d1b8c392c.js",
     "service-worker.js": "/EasyCode-Final-Project/service-worker.js",
     "static/css/main.64244df2.chunk.css.map": "/EasyCode-Final-Project/static/css/main.64244df2.chunk.css.map",
     "static/media/1.jpg": "/EasyCode-Final-Project/static/media/1.946d38c8.jpg",
@@ -29,6 +29,6 @@
     "static/js/runtime-main.afb54eab.js",
     "static/js/2.a2e0074e.chunk.js",
     "static/css/main.64244df2.chunk.css",
-    "static/js/main.4b10a872.chunk.js"
+    "static/js/main.f42e4655.chunk.js"
   ]
 }
