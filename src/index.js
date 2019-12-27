@@ -11,7 +11,7 @@ import "./index.sass";
 ReactDOM.render(
   <Provider store = {store}>
     <ErrorIndicator>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <App/>
       </Router>
     </ErrorIndicator>
