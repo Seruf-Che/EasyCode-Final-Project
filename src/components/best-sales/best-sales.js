@@ -15,7 +15,9 @@ class BestSales extends React.Component {
     return (
       <div className={"best-sales"}>
         {bestSales.length > 0 ?
-          bestSales.map(e => <ProductCard key={e.id} item={e}/>)
+          bestSales.map((e,ind) => 
+            ind < 3 ? <ProductCard key={e.id} item={e}/> : ""
+          )
           : ""}
       </div>
     )
